@@ -1,0 +1,26 @@
+{
+  "name": "motus",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "browserify": "^16.2.2",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "description": "This project contains the game motus. It was a good practice to discover html5, css, jquery and Bootstrap. Good game !!!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saboufarid/motus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saboufarid/motus/issues"
+  },
+  "homepage": "https://github.com/saboufarid/motus#readme"
+}

@@ -1,0 +1,77 @@
+* {
+  margin: 0 !important;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+body {
+  /* add !important to overwrite bootstrap default color white */
+  background: transparent !important;
+}
+
+html {
+    background-color: red;
+}
+
+#content {
+  background-color: yellow;
+  max-width: 600px;
+  margin: auto !important;
+}
+
+table,
+td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+table {
+    border: 2px solid white;
+    margin: auto !important;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 48px;
+  /* background-color: rgb(58, 129, 250); */
+  background-image: linear-gradient(rgb(44, 166, 231), rgb(10, 107, 182));
+  color: white;
+}
+
+td .valid {
+  background-color: red;
+  border: 1px outset;
+}
+
+td .misplaced {
+  background-color: rgb(252, 231, 0);
+  border-radius: 24px;
+}
+
+#answer {
+  width: 300px;
+  margin: auto !important;
+  margin-bottom : 20px; 
+}
+
+input:required {
+  border-left: 4px solid #c33;
+  max-width: 600;
+}
+
+input:focus:invalid,
+select:focus:invalid {
+  color: #c33;
+  border-color: #c33;
+}
+
+input:focus:invalid:focus,
+select:focus:invalid:focus {
+  border-color: #c33;
+  -webkit-box-shadow: 0 0 6px #fcc;
+  -moz-box-shadow: 0 0 6px #fcc;
+  box-shadow: 0 0 6px #fcc;
+}
