@@ -1,6 +1,6 @@
 # motus
 
-autor: Salah ABOUFARID
+author: Salah ABOUFARID
 date: june 15th 2018
 
 This project contains the game motus.
