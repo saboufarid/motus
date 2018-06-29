@@ -21,9 +21,7 @@ $(document).ready(function() {
     $("#answer").attr("disabled", "disabled");
     if (answer.length != wordLength) {
       $("#lose-sound").trigger("play");
-      sleep(500).then(() => {
-        displaySolution();
-      });
+      setTimeout(displaySolution, 1000);
     } else {
       displayCorrespondances(answer);
       $("#answer").val("");
@@ -38,42 +36,42 @@ $(document).ready(function() {
   initGrid();
 });
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function displaySolution() {
+function displaySolution() {
   let correspondance = correspondances(secretWord, secretWord);
-  for (let i = 0; i < correspondance.length; i++) {
-    sleep(i * loopSleep).then(() => {
-      displayCorrespondance(i, correspondance[i]);
-    });
-  }
-}
-
-async function displayCorrespondances(response) {
-  let correspondance = correspondances(response, secretWord);
-  for (let i = 0; i < correspondance.length; i++) {
-    sleep(i * loopSleep).then(() => {
-      displayCorrespondance(i, correspondance[i]);
-    });
-  }
-  sleep(secretWord.length * loopSleep).then(() => {
-    if (response === secretWord) {
-      $("#win-sound").trigger("play");
-    } else if (wordTry === wordTries) {
-      $("#lose-sound").trigger("play");
-      displaySolution();
-    } else {
-      wordTry++;
-      displayDiscoveredLetters();
-      $("#answer").removeAttr("disabled");
-      $("#answer").focus();
+  i = 0;
+  let loop = setInterval(function() {
+    displayCorrespondance(i, correspondance[i]);
+    i++;
+    if (i === correspondance.length) {
+      clearInterval(loop);
     }
-  });
+  }, loopSleep);
 }
 
-async function displayCorrespondance(col, correspondance) {
+function displayCorrespondances(response) {
+  let correspondance = correspondances(response, secretWord);
+  i = 0;
+  let loop = setInterval(function() {
+    displayCorrespondance(i, correspondance[i]);
+    i++;
+    if (i === correspondance.length) {
+      clearInterval(loop);
+      if (response === secretWord) {
+        $("#win-sound").trigger("play");
+      } else if (wordTry === wordTries) {
+        $("#lose-sound").trigger("play");
+        displaySolution();
+      } else {
+        wordTry++;
+        displayDiscoveredLetters();
+        $("#answer").removeAttr("disabled");
+        $("#answer").focus();
+      }
+    }
+  }, loopSleep);
+}
+
+function displayCorrespondance(col, correspondance) {
   let node = display(col, correspondance.lettre);
   node.removeClass("misplaced").removeClass("valid");
   if (correspondance.couleur === "jaune") {
@@ -88,14 +86,14 @@ async function displayCorrespondance(col, correspondance) {
   }
 }
 
-async function displayDiscoveredLetters() {
+function displayDiscoveredLetters() {
   let correspondance = correspondances(discovered.join(""), secretWord);
   for (let i = 0; i < correspondance.length; i++) {
     displayDiscoveredLetter(i, correspondance[i]);
   }
 }
 
-async function displayDiscoveredLetter(col, correspondance) {
+function displayDiscoveredLetter(col, correspondance) {
   let node = display(col, correspondance.lettre);
   if (correspondance.couleur === "rouge") {
     node.addClass("valid");
@@ -125,7 +123,6 @@ function getSecretWord(wordLength) {
 
 function initGrid() {
   secretWord = getSecretWord(wordLength);
-  // let secretWord = "CHIEN";
 
   let table_tds = "";
   for (let i = 0; i < wordLength; i++) {
