@@ -1,33 +1,25 @@
-* {
+body {
+  background-color: red;
+}
+
+table * {
   margin: 0 !important;
   padding: 0;
-  box-sizing: border-box !important;
-}
-
-body {
-  /* add !important to overwrite bootstrap default color white */
-  background: transparent !important;
-}
-
-html {
-    background-color: red;
 }
 
 #content {
   background-color: yellow;
-  max-width: 600px;
-  margin: auto !important;
 }
 
 table,
 td {
-    border: 1px solid white;
-    border-collapse: collapse;
+  border: 1px solid white;
+  border-collapse: collapse;
 }
 
 table {
-    border: 2px solid white;
-    margin: auto !important;
+  border: 2px solid white;
+  margin: auto !important;
 }
 
 td {
@@ -36,7 +28,6 @@ td {
   text-align: center;
   line-height: 50px;
   font-size: 48px;
-  /* background-color: rgb(58, 129, 250); */
   background-image: linear-gradient(rgb(44, 166, 231), rgb(10, 107, 182));
   color: white;
 }
@@ -48,18 +39,17 @@ td .valid {
 
 td .misplaced {
   background-color: rgb(252, 231, 0);
-  border-radius: 24px;
+  border-radius: 50%;
 }
 
 #answer {
   width: 300px;
-  margin: auto !important;
-  margin-bottom : 20px; 
 }
 
 input:required {
   border-left: 4px solid #c33;
   max-width: 600;
+  margin: auto !important;
 }
 
 input:focus:invalid,

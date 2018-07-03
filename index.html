@@ -11,43 +11,49 @@
     <meta name="description" content="Game Motus created during the training LeReacteur">
     <meta name="author" content="Salah ABOUFARID">
 
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script defer src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous">
+        </script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script defer type="text/javascript" src="js/bundle.js"></script>
 </head>
 
 <body>
-    
-    <div id="content" class="col-md-12">
-        <table id="grid"/>
+    <div id="content" class="container">
+        <div class="row">
+            <div class="col col-md-2 mb-2"></div>
+            <div class="col-md-8 mb-2">
+                <table id="grid" />
+            </div>
+            <div class="col-md-2 mb-2"></div>
 
-        <input type="text"
-        id="answer"
-        placeholder="Veuillez entrer un mot de n lettres"
-        required
-        pattern="[a-zA-Z]{5,9}"
-        autofocus
-        class="form-control">
-
-        <audio id="valid-sound" preload="auto">
-            <source src="sounds/valid.wav" type="audio/wav"/>
-        </audio>
-        <audio id="misplaced-sound" preload="auto">
-            <source src="sounds/misplaced.wav" type="audio/wav"/>
-        </audio>
-        <audio id="lose-sound" preload="auto">
-            <source src="sounds/lose.wav" type="audio/wav"/>
-        </audio>
-        <audio id="win-sound" preload="auto">
-            <source src="sounds/win.wav" type="audio/wav"/>
-        </audio>
-        <audio id="wrong-sound" preload="auto">
-            <source src="sounds/wrong.wav" type="audio/wav"/>
-        </audio>
+            <div class="col-md-2 mb-2"></div>
+            <input type="text" id="answer" placeholder="Veuillez entrer un mot de n lettres" required pattern="[a-zA-Z]{5,9}" autofocus
+                class="form-control">
+            <div class="col-md-2 mb-2"></div>
+        </div>
     </div>
 
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bundle.js"></script>
+    <audio id="valid-sound" preload="auto">
+        <source src="sounds/valid.wav" type="audio/wav" />
+    </audio>
+    <audio id="misplaced-sound" preload="auto">
+        <source src="sounds/misplaced.wav" type="audio/wav" />
+    </audio>
+    <audio id="lose-sound" preload="auto">
+        <source src="sounds/lose.wav" type="audio/wav" />
+    </audio>
+    <audio id="win-sound" preload="auto">
+        <source src="sounds/win.wav" type="audio/wav" />
+    </audio>
+    <audio id="wrong-sound" preload="auto">
+        <source src="sounds/wrong.wav" type="audio/wav" />
+    </audio>
 
 </body>
 
